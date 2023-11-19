@@ -14,7 +14,8 @@
         </ul> 
     </head>
     <body>
-        <p style="text-align: center;"><img style=" width: 200px; border-radius: 100%;" src="img/WhatsApp Image 2023-11-18 at 10.54.53_ab31d2c0.jpg"></p>
+        <p style="font-size: 9px; text-align: center;">Pencet Gambar saya pak</p>
+        <p onclick="showPopup()" style="text-align: center;"><img style=" width: 200px; border-radius: 100%;" src="img/WhatsApp Image 2023-11-18 at 10.54.53_ab31d2c0.jpg"></p>
         <div style="text-align: center; font-size: 18px;">
             <p>Rasyid Abdul Ghani H</p>
             <p>XI-A / SMAN 88 Jakarta</p>
@@ -22,24 +23,18 @@
         <hr></hr>
         <article>
             <h2 style="text-align: center;">Overview</h2>
-            <p style="font-size: 18px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                  veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                   ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                    voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                      officia deserunt mollit anim id est laborum.</p>
+            <p style="font-size: 18px;">Halo Semua nya! Perkenalkan Nama ku Rasyid. Hobby ku banyak, Seperti Tidur,
+                makan, hahaha aku tau itu tidak terlihat seperti hobby, tapi itu memang kebiasaanku. oh iya aku sudah
+                pernah menjadi owner dari suatu server maincraft dan saya juga pernah menjadi tim developer di suatu
+                server minecraft. dari tadi sepertinya aku membicarakan aktivitasku sampai aku lupa memberi tahu ulang
+                tahun ku, aku lahir pada tanggal 30 November 2006, Hehehe bisa di bilang aku masih tergolong muda.
+                Pelajaran yang paling kusuka adalah TIK tapi sayang sekali di kelas 11 SMA ini tidak ada TIK lagi :(</p>
 
-            <p style="font-size: 18px;">Lorem ipsum dolor sit amet, consectetur 
-                adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
-                magna aliqua. Morbi tristique senectus et netus et malesuada fames ac.
-                 Lorem mollis aliquam ut porttitor. Id faucibus nisl tincidunt eget 
-                 nullam non nisi. Nullam eget felis eget nunc lobortis mattis aliquam 
-                 faucibus purus.</p>
-
-             <p style="font-size: 18px;">Lorem ipsum dolor sit amet, consectetur 
-                adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
-                magna aliqua.</p>
+            <p style="font-size: 18px;">Cita citaku sebenernya ada 2 sih. aku ingin menjadi Web Designer dan Designer
+                Karena menurut ku kalau 2 skill itu bisa aku punyai dan aku kuasai mungkin saja aku bisa sukses Karena
+                pada umumnya web designer udah pasti bisa design dan designer belum tentu bisa design web, Jadi
+                value dan gajiku dalam perusaan bisa naik juga karena aku mempunyai 2 skill itu. tapi selain dari duit
+                aku ingin menjadi web design dan designer karena aku menyukai keduanya hahaha.</p>
         </article>
         <hr></hr>
             <p style="text-align: center;">
@@ -47,6 +42,25 @@
                 <a href="instagram.com"><img style="width: 20px;" src="img/dab84e5ae5a049d075fcd49ee11bc39a.png"></a>
                 <a href="instagram.com"><img style="width: 20px;" src="img/email-icon--clipart-best-22.png"></a>
             </p>
+        <div id="popup" class="popup">
+            <h2>Profile</h2>
+            <p>Nama : Rasyid Abdul Ghani H<br>Kelas : XI-A<br>Tanggal Lahir : 30-11-2006<br>Hobi : Coding<br><br>This is cogil</p>
+            <button onclick="closePopup()">Tutup</button>
+        </div>
+
+        <div id="overlay" class="overlay"></div>
+
+        <script>
+            function showPopup() {
+                document.getElementById('popup').style.display = 'block';
+                document.getElementById('overlay').style.display = 'block';
+            }
+        
+            function closePopup() {
+                document.getElementById('popup').style.display = 'none';
+                document.getElementById('overlay').style.display = 'none';
+            }
+        </script>
     </body>
     <hr></hr>
     <audio autoplay controls hidden id="audio1">
@@ -70,7 +84,7 @@
             }
         }
     </script>
-    <footer style="text-align: center;">
-        Copyright by foniks design <time datetime="2023-11-18">2023</time>
-    </footer>
+        <footer style="text-align: center;">
+            Copyright by foniks design <time datetime="2023-11-18">2023</time>
+        </footer>
 </html>
