@@ -74,6 +74,8 @@
             function closePopup() {
                 document.getElementById('popup').style.display = 'none';
                 document.getElementById('overlay').style.display = 'none';
+                video.contentWindow.postMessage( '{"event":"command", "func":"stopVideo", "args":""}', '*');
+
             }
         </script>
 
