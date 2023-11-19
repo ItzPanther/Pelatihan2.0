@@ -1,80 +1,153 @@
+<!DOCTYPE html>
 <html lang="en">
+<head>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.ico">
-    <head>
-        <title>
-            MyProfile | Playlist
-        </title>
-        <h1 class="navbar-judul" style="color: white;">MyProfile</h1>
-        <ul class="navbar-ul">
-            <li><a class="navbar-list" href="home.html">Home</a></li>
-            <li><a class="navbar-list" href="about.html">Contact</a></li>
-            <li><a class="navbar-list" href="about.html">About Me</a></li>
-            <li><a class="navbar-list" href="playlist.html">Playlist</a></li>
-        </ul>
-    </head>
-    <body>
-        <div class="audio-container" style="background-color: White; border-radius: 20px;">
-            <img style="width: 70px; border-radius: 20px;" src="img/rinje_funky.jpg">
-            <audio controls hidden id="audio1">
-              <source src="sound/DJ TETAP DALAM JIWA MENGKANE VIRAL TIKTOK SOUND RIZKI YETE.mp3" type="audio/mp3">
-              Your browser does not support the audio element.
-            </audio>
-            <h1>DJ Tetap Dalam Jiwa</h1>
-            <div class="controls">
-              <button onclick="playPause('audio1')">Play/Pause</button>
-              <button onclick="muteUnmute('audio1')">Mute/Unmute</button>
-              <button onclick="Repeat('audio1')">Restart</button>
-              <input type="range" id="volume1" min="0" max="1" step="0.1" value="1" oninput="setVolume('audio1')">
-            </div>
+    <title>MyProfile | Playlist</title>
+    <h1 class="navbar-judul" style="color: white;">MyProfile</h1>
+    <ul class="navbar-ul">
+        <li><a class="navbar-list" href="home.html">Home</a></li>
+        <li><a class="navbar-list" href="about.html">Contact</a></li>
+        <li><a class="navbar-list" href="about.html">About Me</a></li>
+        <li><a class="navbar-list" href="playlist.html">Playlist</a></li>
+        <div class="search">
+          <input style="width: 200px;" type="text" id="searchInput" oninput="filterAudio()" placeholder="Search...">
         </div>
-        
-        <div class="audio-container" style="background-color: White; border-radius: 20px;">
-            <img style="width: 70px; border-radius: 20px;" src="img/starboy.jpg">
-            <audio controls hidden id="audio2">
-              <source src="sound/Starboy.mp3" type="audio/mp3">
-              Your browser does not support the audio element.
-            </audio>
-            <h1>Starboy</h1>
-            <div class="controls">
-              <button onclick="playPause('audio2')">Play/Pause</button>
-              <button onclick="muteUnmute('audio2')">Mute/Unmute</button>
-              <button onclick="Repeat('audio2')">Restart</button>
-              <input type="range" id="volume2" min="0" max="1" step="0.1" value="1" oninput="setVolume('audio2')">
-            </div>
-        </div>
+    </ul>
+</head>
+<body>
 
-          <script>
-            function playPause(audioId) {
+    <div class="audio-container" style="background-color: White; border-radius: 20px;">
+      <a href="https://www.youtube.com/@Rinje_Fvnky"><img style="width: 70px; border-radius: 20px;" src="img/rinje_funky.jpg"></a>
+        <audio controls hidden id="audio1">
+            <source src="sound/DJ TETAP DALAM JIWA MENGKANE VIRAL TIKTOK SOUND RIZKI YETE.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <h1>DJ Tetap Dalam Jiwa</h1>
+        <div class="controls">
+            <button onclick="playPause('audio1')" id="toggleplay1">Play</button>
+            <button onclick="muteUnmute('audio1')">Mute/Unmute</button>
+            <button onclick="toggleLoop('audio1')" id=loopbutton1>Loop</button>
+            <span id="currentTime1">0:00</span>
+        </div>
+    </div>
+    
+    <div class="audio-container" style="background-color: White; border-radius: 20px;">
+      <a href="https://www.youtube.com/channel/UC0WP5P-ufpRfjbNrmOWwLBQ"><img style="width: 70px; border-radius: 20px;" src="img/starboy.jpg"></a>
+        <audio controls hidden id="audio2">
+            <source src="sound/Starboy.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <h1>Starboy</h1>
+        <div class="controls">
+            <button onclick="playPause('audio2')" id="toggleplay2">Play</button>
+            <button onclick="muteUnmute('audio2')">Mute/Unmute</button>
+            <button onclick="toggleLoop('audio2')" id=loopbutton2>Loop</button>
+            <span id="currentTime2">0:00</span>
+        </div>
+    </div>
+
+    <div class="audio-container" style="background-color: White; border-radius: 20px;">
+      <a href="https://www.youtube.com/channel/UCUxwNsb_pPz1Tklj23b9MqA"><img style="width: 70px; border-radius: 20px;" src="img/penjagahati.png"></a>
+      <audio controls hidden id="audio3">
+          <source src="sound/Nadhif Basalamah - penjaga hati.mp3" type="audio/mp3">
+          Your browser does not support the audio element.
+      </audio>
+      <h1>Penjaga hati</h1>
+      <div class="controls">
+          <button onclick="playPause('audio3')" id="toggleplay3">Play</button>
+          <button onclick="muteUnmute('audio3')">Mute/Unmute</button>
+          <button onclick="toggleLoop('audio3')" id=loopbutton3>loop</button>
+          <span id="currentTime3">0:00</span>
+      </div>
+    </div>
+
+      <div class="audio-container" style="background-color: White; border-radius: 20px;">
+        <a href="https://www.youtube.com/channel/UC3IDszw1gtQWLY-JGrNStNQ"><img style="width: 70px; border-radius: 20px;" src="img/miqbal.jpg"></a>
+        <audio controls hidden id="audio4">
+            <source src="sound/GANTI AYANG - MIQBAL GA.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <h1>Ganti ayang</h1>
+        <div class="controls">
+            <button onclick="playPause('audio4')" id="toggleplay4">Play</button>
+            <button onclick="muteUnmute('audio4')">Mute/Unmute</button>
+            <button onclick="toggleLoop('audio4')" id=loopbutton4>loop</button>
+            <span id="currentTime4">0:00</span>
+        </div>
+      </div>
+    <script>
+        function playPause(audioId) {
             const audio = document.getElementById(audioId);
+            const toggleplay = document.getElementById(`toggleplay${audioId.charAt(audioId.length-1)}`);
+
             if (audio.paused) {
+                audio.currentTime = 0;
                 audio.play();
+                toggleplay.innerText = 'Pause';
             } else {
                 audio.pause();
+                toggleplay.innerText = 'play';
             }
-            }
+        }
 
-            function muteUnmute(audioId) {
+        function muteUnmute(audioId) {
             const audio = document.getElementById(audioId);
             audio.muted = !audio.muted;
-            }
+        }
 
-            function setVolume(audioId) {
+        function setVolume(audioId) {
             const audio = document.getElementById(audioId);
-            const volumeId = audioId === 'audio1' ? 'volume1' : 'volume2';
+            const volumeId = audioId === 'audio1' ? 'volume1' : 'aidio2' ? 'volume2' : 'audio3' ? 'volume3' : 'audio4' ? 'volume4' : 'volume 5';
             audio.volume = document.getElementById(volumeId).value;
-            }
+        }
 
-            function restartAudio(audioId) {
+        function toggleLoop(audioId) {
             const audio = document.getElementById(audioId);
-            audio.currentTime = 0;
+            const loopbutton = document.getElementById(`loopbutton${audioId.charAt(audioId.length-1)}`);
+            
+            audio.loop = !audio.loop;
+
+            if (audio.loop) {
+              loopbutton.innerText = 'Unloop';
+            } else {
+              loopbutton.innerText = 'Loop';
             }
-          </script>
-    </body>
-    <hr></hr>
-        <p style="background-color: red;">Disclaimer : Lagu dalam website ini bukan milik kami, maka dari itu kami memberikan link channel pembuat / remix dari lagunya</p>
-    <hr></hr>
+        }
+
+        function filterAudio() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const audioContainers = document.querySelectorAll('.audio-container');
+
+            audioContainers.forEach(container => {
+                const title = container.querySelector('h1').innerText.toLowerCase();
+                if (title.includes(searchInput)) {
+                    container.style.display = 'block';
+                } else {
+                    container.style.display = 'none';
+                }
+            });
+        }
+        function updateTime(audioId) {
+            const audio = document.getElementById(audioId);
+            const currentTimeSpan = document.getElementById(`currentTime${audioId.charAt(audioId.length-1)}`);
+
+            const minutes = Math.floor(audio.currentTime / 60);
+            const seconds = Math.floor(audio.currentTime % 60);
+
+            const formattedTime = `${minutes}:${(seconds < 10 ? '0' : '')}${seconds}`;
+            currentTimeSpan.innerText = formattedTime;
+        }
+    </script>
+
+    <hr>
+
+    <p style="background-color: red;">Disclaimer: Lagu dalam website ini bukan milik kami, maka dari itu kami memberikan link channel pembuat/remix dari lagunya</p>
+
+    <hr>
+
     <footer style="text-align: center;">
         Copyright by foniks design <time datetime="2023-11-18">2023</time>
     </footer>
+</body>
 </html>
