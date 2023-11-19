@@ -55,9 +55,31 @@
                 </tr>
             </tbody>
         </table>
-        <video controls>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/4LmqSqXJPEg?si=FpnXaVA3mC7DzbV6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </video>
+        <button onclick="showPopup()">Tampilkan Video</button>
+
+        <div id="popup" class="popup">
+            <h2>Katak Lompat</h2>
+            <p style="background-color: red;">Error Pak</p>
+            <video controls>
+                <source src="img/y2mate.com - kodok lompat acumalaka_720p.mp4" type="video/mp4" frameborder="0"></source>    
+            </video>
+            <button onclick="closePopup()">Tutup</button>
+        </div>
+
+        <div id="overlay" class="overlay"></div>
+
+        <script>
+            function showPopup() {
+                document.getElementById('popup').style.display = 'block';
+                document.getElementById('overlay').style.display = 'block';
+            }
+        
+            function closePopup() {
+                document.getElementById('popup').style.display = 'none';
+                document.getElementById('overlay').style.display = 'none';
+            }
+        </script>
+
         <hr></hr>
         <p style="text-align: left; text-decoration: none;"><a><img style="width: 20px;" src="img/email-icon--clipart-best-22.png"> raghmusic24@gmail.com</a></p>
         <p style="text-align: left; text-decoration: none;"><a href="web.whatsapp.com"><img style="width: 20px;" src="img/Logo-WA-Hitam-Putih.png"> 082123515952</a></p>
