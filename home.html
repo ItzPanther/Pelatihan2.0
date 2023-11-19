@@ -52,7 +52,25 @@
     <footer style="text-align: center;">
         Copyright by foniks design <time datetime="2023-11-18">2023</time>
     </footer>
-    <audio autoplay controls hidden>
+    <audio autoplay controls hidden id="audio1">
         <source src="sound/Starboy.mp3">
     </audio>
+    <div class="controls">
+        <button onclick="playPause('audio1')" id="toggleplay1">🔊</button>
+    </div>
+    <script>
+        function playPause(audioId) {
+            const audio = document.getElementById(audioId);
+            const toggleplay = document.getElementById(`toggleplay1`);
+
+            if (audio.paused) {
+                audio.currentTime = 0;
+                audio.play();
+                toggleplay.innerText = '🔊';
+            } else {
+                audio.pause();
+                toggleplay.innerText = '🔈';
+            }
+        }
+    </script>
 </html>
